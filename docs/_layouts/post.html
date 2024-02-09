@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<head>
+  {% if page.use_math %}
+  {% include mathjax_support.html %}
+  {% endif %}
+</head>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
