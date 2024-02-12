@@ -55,7 +55,9 @@ From the Universal Approximation Theorem [<a href='https://www.sciencedirect.com
 
 We will now approximate the size of a shallow neural network and call it the *degree of approximation*. Let $V_J$ be the set of all shallow networks with $J$ units(/neurons). It is assumed that networks of higher complexity include those of lower complexity, or $V_J \subseteq V_{J+1}$. The <i>degree of approximation</i> is then defined by
 
-$$\text{dist}(f,V_J) = \inf_{P\in V_J} ||f-P||. ~~~(1)$$
+$$ 
+\text{dist}(f,V_J) = \inf_{P\in V_J} ||f-P||. ~~~(1) 
+$$
 
 This definition is used to set up a metric by which we can measure how well a certain size of network is able to approximate a function. It is now provable that in the case it is desired that $\text{dist}(f,V_J) < \epsilon$ for any arbitrary $\epsilon$, the complexity of the network becomes in the order of $\mathcal{O}(\epsilon^{-\frac{1}{d}})$. Which means, if an accuracy is desired of within 10% of the original function, a network of size $10^d$ is needed to guarantee it [<a href='https://arxiv.org/abs/1611.00740'>2</a>], where $d$ was the dimensionality of the input. It should be noted that there are only $10^{86}$ atoms in the universe. It seems quite hard to find a feasible shallow network that can learn the 150.528 input to a single class output mapping of ImageNet.
 
@@ -68,14 +70,16 @@ The first condition is that $f(x)$ should be of a compositional nature. This  me
 ### Condition 2. The activation function $\sigma$ is smooth
 The second condition is that the activation function $\sigma$ should be smooth (the derivative of a function should be continuous). The most used activation function nowadays is the ReLU function, whose derivative in $0$ is not well-defined. It would mean that this condition is not satisfied, but by invoking the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem">Weierstrass approximation theorem</a> on the ReLU function it can be uniformly approximated as closely as desired by a polynomial function (of high enough order). In figure 1, the ReLU activation function is approximated by a polynomial and the resulting network (trained on <a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10</a>) empirically has approximately the same performance [<a href="https://arxiv.org/abs/1703.09833">6</a>]. Hereby it is possible to say that the second condition is satisfied as well.
 
-<center> <img src="../assets/images/2019-09-20-ignoring-cod/smoothedrelu.png"> <br> <i> figure 1. Approximating the ReLU activation function by a polynomial and the resulting performance of the network. [<a href="https://arxiv.org/abs/1703.09833">6</a>]</i></center> 
+<center> <img src="/assets/images/2019-09-20-ignoring-cod/smoothedrelu.png"> <br> <i> figure 1. Approximating the ReLU activation function by a polynomial and the resulting performance of the network. [<a href="https://arxiv.org/abs/1703.09833">6</a>]</i></center> 
 
 ### Consequence
 Now that we see that both conditions are met, it is possible to extend the Universal Approximation Theorem to deep networks as well. It also gives the possibility to compare the approximation power of shallow vs deep networks. When setting up a neural network, in general, we do not have the analytic form of function $f(x)$ we are trying to approximate, but just have the input and output data.
 
 For demonstrational purposes, we now introduce the polynomial function $Q(x,y)$ as the function we are trying to approximate with the network. By doing this, we can compare shallow vs deep networks. For example, let us define $Q(x,y)$ as the following function
 
-$$ Q(x,y) = \left(a x^2y^2 + b x^2y + c xy^2 + dx^2 + 2exy + fy^2 + 2gx + 2hy + i\right)^{2^{10}}.~~~~(2)$$
+$$ 
+Q(x,y) = \left(a x^2y^2 + b x^2y + c xy^2 + dx^2 + 2exy + fy^2 + 2gx + 2hy + i\right)^{2^{10}}.~~~~(2) 
+$$
 
 For a 1-layer network, 2049 neurons are needed to approximate $Q$ arbitrarily well, whereas an 11-layer network just needs 39 neurons (9-3-...-3) to approximate $Q$ arbitrarily well [7]. (The fact it can be approximated arbitrarily well is because a polynomial function without noise is used.)
 
@@ -89,16 +93,20 @@ The final question that remains is: Why is it possible to find an optimum in a s
 # Solutions of a deep neural network 
 To address the final question, it is useful to know what constitutes a well performing neural network. In the ideal case, this is a neural network that has 0 (train and) test error. In the case of a neural network with an input size of $x \in \mathbb{R}^{N\times d}$, with $N$ samples and $d$-dimensional input. The output of size $y \in \mathbb{R}^{N\times m}$, the amount of weights $w \in \mathbb{R}^{K}$ and the depth of the network to be $L$. The performance of the network is in general approximated by a cost function,
 
-$$ J(w, x) = \sum_{i=1}^{N}V\left(F(x_i, w), y_i  \right), ~~~~ (3) $$ 
+$$ 
+J(w, x) = \sum_{i=1}^{N}V\left(F(x_i, w), y_i  \right), ~~~~ (3) 
+$$ 
 
 where the optimum can be found if $\nabla_w J(w,x) = 0$ (which are $K$ equations). If a polynomial function is chosen as the loss function (for example the sum of squared errors $J(w,x)=\sum_{i=1}^{N}(F(x_i, w)-y_i)^2$), and the activation function for each neuron is the polynomial approximation of the ReLU (as used in fig. 1), by induction it can quite easily be shown that $\nabla_wJ(w,x)$ is a polynomial function as well. This gives us a set of polynomial equations of the form
 
-$$\left\{\begin{array}{rcl}
+$$ 
+\left\{\begin{array}{rcl}
 J'_{w_1} &=& \frac{\partial J}{\partial w_1} = 2 \sum_{i=1}^{N} (F(x_i,w)-y_i)\frac{\partial F(x_i,w)}{\partial w_1} =0, \\
 J'_{w_2} &=& \frac{\partial J}{\partial w_2} = 2 \sum_{i=1}^{N} (F(x_i,w)-y_i)\frac{\partial F(x_i,w)}{\partial w_2} =0, \\
 &\vdots& \\
 J'_{w_K} &=& \frac{\partial J}{\partial w_K} = 2 \sum_{i=1}^{N} (F(x_i,w)-y_i)\frac{\partial F(x_i,w)}{\partial w_K} =0. \\
-\end{array}\right.~~~~~(4)$$
+\end{array} \right. ~~~~~ (4) 
+$$
 
 Where the (global) optimum is found if $J'_{w_1} = J'_{w_2} = \ldots = J'_{w_K}=0$. Since these are all polynomial equations, we can make use of an old 18th century theorem from algebraic geometry, namely <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_theorem">Bézout's theorem</a>. It gives an approximation to the number of solutions for systems of polynomial equations. 
 
