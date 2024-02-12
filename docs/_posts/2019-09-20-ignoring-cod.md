@@ -3,7 +3,6 @@ layout: post
 title: "Ignoring the Curse of Dimensionality"
 date: 2019-09-20
 categories: post
-# featured_img: /assets/images/2024-02-03-trial/dalle_panda.webp
 ---
 
 # Ignoring the Curse of Dimensionality
