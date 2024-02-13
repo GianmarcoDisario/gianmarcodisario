@@ -108,7 +108,7 @@ J'_{w_K} &=& \frac{\partial J}{\partial w_K} = 2 \sum_{i=1}^{N} (F(x_i,w)-y_i)\f
 \end{array} \right. ~~~~~ (4) 
 $$
 
-Where the (global) optimum is found if $ J'_{w_1} = J'_{w_2} = \ldots = J'_{w_K}=0 $. Since these are all polynomial equations, we can make use of an old 18th century theorem from algebraic geometry, namely <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_theorem">Bézout's theorem</a>. It gives an approximation to the number of solutions for systems of polynomial equations. 
+Where the (global) optimum is found if $ J_{w_1}' = J_{w_2}' = \ldots = J_{w_K}' =0 $. Since these are all polynomial equations, we can make use of an old 18th century theorem from algebraic geometry, namely <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_theorem">Bézout's theorem</a>. It gives an approximation to the number of solutions for systems of polynomial equations. 
 
 As noted earlier, an approximation is made of the ReLU function of polynomial degree $l$ (remember, $x^3 + 4x^2 - 2x$ is a polynomial of degree 3) with an error in approximation of $\delta$. It can be proven that there is an upper bound of $l^{NL}$ global optima with an estimate of $l^{\frac{NL}{2}}$ non-degenerate solutions to the set of equations (4) [<a href="https://arxiv.org/abs/1703.09833">6</a>, 8].
 
