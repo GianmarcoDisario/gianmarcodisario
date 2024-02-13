@@ -14,7 +14,7 @@ Coming from a background in control (& systems) engineering, my love for everyth
 
 Quite often I make a distinction between people coming to data science & AI from either one of four areas: engineering/applied maths, econometric, computer science or who actually studied data science/AI. Each one will be accustomed to a different way of notation, working out and learning things in the field and you notice it when reading their blogs. In this blog I will just stay close to what I know and feel comfortable with. I hope it resonates with you!
 
-This blog was started in early 2024 with [a small blogpost from my previous blog in 2019]({{ site.baseurl }}{% link _posts/2019-09-20-ignoring-cod.md %}) which is still surprisingly relevant with the surgence of the multi-billion parameter models. 
+This blog was started in early 2024 with [a small blogpost from my previous blog in 2019]({{ site.baseurl }}{% link _posts/2024-02-12-ignoring-cod.md %}) which is still surprisingly relevant with the surgence of the multi-billion parameter models. 
 
 #### Current Focus
 
