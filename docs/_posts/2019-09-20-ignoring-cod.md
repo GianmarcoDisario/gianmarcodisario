@@ -32,8 +32,9 @@ Subsequently, I will take a look at neural networks and explain the Universal Ap
 As most data scientists are familiar with the main concepts of the curse of dimensionality, they will not be set out in this blogpost. In case you are not that familiar with it, the following video lecture covers it in the best 30 minute version that I have come across.
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BbYV8UfMJSA?si=DxY1wVyrLNKXwg11&amp;start=66&end=1853" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BbYV8UfMJSA?si=DxY1wVyrLNKXwg11&amp;start=66" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
+
 <br>
 
 Here I will briefly explain the part of the curse of dimensionality which is useful to us. A consequence of the curse of dimensionality is that in general you try to limit the amount of features you use to describe the relationship between input and output of the model. The curse of dimensionality mainly takes its toll on data with high multi-dimensional covariance. When making a machine learning model, it is assumed that there is sufficient structure (sufficiently low covariance/noise across different features) in the data to allow for a proper mapping of input to output by an approximate mathematical function. It is often the case that when a high-dimensional space is used (many features), that the useful relationship lives on a lower dimensional representation. This lower dimensional representation can either be a sub-space or a sub-manifold of the high-dimensional data (<a href='https://www.youtube.com/watch?v=BbYV8UfMJSA&t=665'>a more elaborate explanation of this idea can be seen here</a>). The reduction to this lower dimensional representation is achieved by a dimensionality reduction technique, or the machine learning model to be trained tries to implicitly learn this lower dimensional sub-space/-manifold.
@@ -96,7 +97,7 @@ $$
 J(w, x) = \sum_{i=1}^{N}V\left(F(x_i, w), y_i  \right), ~~~~ (3) 
 $$ 
 
-where the optimum can be found if $\nabla_w J(w,x) = 0$ (which are $K$ equations). If a polynomial function is chosen as the loss function (for example the sum of squared errors $J(w,x)=\sum_{i=1}^{N}(F(x_i, w)-y_i)^2$), and the activation function for each neuron is the polynomial approximation of the ReLU (as used in fig. 1), by induction it can quite easily be shown that $\nabla_wJ(w,x)$ is a polynomial function as well. This gives us a set of polynomial equations of the form
+where the optimum can be found if $\nabla_w J(w,x) = 0$ (which are $K$ equations). If a polynomial function is chosen as the loss function (for example the sum of squared errors $ J(w,x)=\sum_{i=1}^{N}(F(x_i, w)-y_i)^2 $), and the activation function for each neuron is the polynomial approximation of the ReLU (as used in fig. 1), by induction it can quite easily be shown that $\nabla_wJ(w,x)$ is a polynomial function as well. This gives us a set of polynomial equations of the form
 
 $$ 
 \left\{\begin{array}{rcl}
@@ -107,7 +108,7 @@ J'_{w_K} &=& \frac{\partial J}{\partial w_K} = 2 \sum_{i=1}^{N} (F(x_i,w)-y_i)\f
 \end{array} \right. ~~~~~ (4) 
 $$
 
-Where the (global) optimum is found if $J'_{w_1} = J'_{w_2} = \ldots = J'_{w_K}=0$. Since these are all polynomial equations, we can make use of an old 18th century theorem from algebraic geometry, namely <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_theorem">Bézout's theorem</a>. It gives an approximation to the number of solutions for systems of polynomial equations. 
+Where the (global) optimum is found if $ J'_{w_1} = J'_{w_2} = \ldots = J'_{w_K}=0 $. Since these are all polynomial equations, we can make use of an old 18th century theorem from algebraic geometry, namely <a href="https://en.wikipedia.org/wiki/B%C3%A9zout%27s_theorem">Bézout's theorem</a>. It gives an approximation to the number of solutions for systems of polynomial equations. 
 
 As noted earlier, an approximation is made of the ReLU function of polynomial degree $l$ (remember, $x^3 + 4x^2 - 2x$ is a polynomial of degree 3) with an error in approximation of $\delta$. It can be proven that there is an upper bound of $l^{NL}$ global optima with an estimate of $l^{\frac{NL}{2}}$ non-degenerate solutions to the set of equations (4) [<a href="https://arxiv.org/abs/1703.09833">6</a>, 8].
 

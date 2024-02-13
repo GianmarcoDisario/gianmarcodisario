@@ -6,3 +6,5 @@ categories: post
 ---
 
 # Causal approach to CLV
+
+New blog to be written soon...
