@@ -148,7 +148,6 @@ no. 133, pp. 141–164, 1994. <br>
 [<a href="https://arxiv.org/abs/1903.04991">9</a>] Banburski, Andrzej, et al. "Theory III: Dynamics and Generalization in Deep Networks." arXiv preprint arXiv:1903.04991 (2019). <br>
 [<a href="https://arxiv.org/abs/1806.11379">10</a>] Poggio, Tomaso, et al. "Theory IIIb: Generalization in deep networks." arXiv preprint arXiv:1806.11379 (2018). <br>
 [<a href="http://oastats.mit.edu/handle/1721.1/122014">11</a>] Poggio, Tomaso, Andrzej Banburski, and Qianli Liao. Theoretical Issues In Deep Networks. Center for Brains, Minds and Machines (CBMM), 2019.
-
 </small>
 
 

@@ -9,7 +9,7 @@ permalink: /about/
 Welcome! :smiley: I am Gianmarco Disario, a data scientist and cofounder of [Latitude](https://discoverlatitude.com/) in Amsterdam. A boutique data & AI agency based in Amsterdam with a specialty in everything related to customer analytics.
 
 <br>
-<center> <img src="/assets/images/generic/gianmarco_square.jpg" width="20%" height="50%">
+<center> <img src="/assets/images/generic/gianmarco_square.jpg" width="20%" height="50%"> <br>
 <i>It's-a me!</i>
 </center> <br>
 
