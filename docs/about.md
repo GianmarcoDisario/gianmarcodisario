@@ -5,6 +5,9 @@ permalink: /about/
 ---
 
 # Gianmarco Disario :rocket:
+
+<center> <img src="/assets/images/generic/gianmarco.jpeg" width="50%" height="50%"></center> 
+
 Welcome! :smiley: I am Gianmarco Disario, a data scientist and cofounder of [Latitude](https://discoverlatitude.com/) in Amsterdam. A boutique data & AI agency based in Amsterdam with a specialty in everything related to customer analytics.
 
 Coming from a background in control (& systems) engineering, my love for everything data & AI related is rooted in a deep understanding of complex systems, probability theory and linear algebra (still thanking [Khan Academy's](https://www.youtube.com/playlist?list=PLFD0EB975BA0CC1E0) and [3Blue1Brown's](https://www.youtube.com/watch?v=kjBOesZCoqc&list=PL0-GT3co4r2y2YErbmuJw2L5tW4Ew2O5B) linear algebra videos to this day).
