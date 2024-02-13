@@ -5,8 +5,8 @@ permalink: /about/
 ---
 
 # Gianmarco Disario :rocket:
-
-<center> <img src="/assets/images/generic/gianmarco.jpeg" width="50%" height="50%"></center> 
+<br>
+<center> <img src="/assets/images/generic/gianmarco_square.jpeg" width="20%" height="50%"></center> <br>
 
 Welcome! :smiley: I am Gianmarco Disario, a data scientist and cofounder of [Latitude](https://discoverlatitude.com/) in Amsterdam. A boutique data & AI agency based in Amsterdam with a specialty in everything related to customer analytics.
 
@@ -34,7 +34,6 @@ I am crazy impressed with how he has reworked the course in 2023/2024 (vs. my la
 
 #### Causal Inference
 
-####
 - **Matheus Facure - [Causal Inference in Python](https://www.oreilly.com/library/view/causal-inference-in/9781098140243/)** (as well as his _free_ blog [Causal Inference for the Brave & True](https://matheusfacure.github.io/python-causality-handbook/landing-page.html))
 Very fun and easily accessible intro into the basic topics of Causal Inference with many references into deep dives, but mainly very nice and pragmatic.
 - Currently browsing many different textbooks to get to a more fundamental/mathematical grasp of it... Feel free to suggest one!
