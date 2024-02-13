@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "Ignoring the Curse of Dimensionality"
-date: 2019-09-20
+date: 2024-02-12
 categories: post
 ---
 
 # Ignoring the Curse of Dimensionality
 
-While walking around on holiday in back in 2018 Mexico I was listening to [Lex Fridman's Artificial Intelligence](https://lexfridman.com/ai/) podcast (when it was still called the AI podcast) with the guest [Tomaso Poggio](https://en.wikipedia.org/wiki/Tomaso_Poggio) where he said something really interesting that struck a chord with me:
+> **Note:** _This is a blog I have adjusted slightly from a blog I wrote back in 2019. So it could be that recent developments have shed some more light on the questions I outlined at the end. In case you know know how this field has evolved in the last few years, please reach out and let me know! :wink:_
+
+While walking around on holiday in back in 2019 Mexico I was listening to [Lex Fridman's Artificial Intelligence](https://lexfridman.com/ai/) podcast (when it was still called the AI podcast) with the guest [Tomaso Poggio](https://en.wikipedia.org/wiki/Tomaso_Poggio) where he said something really interesting that struck a chord with me:
 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aSyZvBrPAyk?si=tTwWBTDRl1NiWy6n&amp;start=2503&end=2559" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -29,10 +31,10 @@ In this blogpost I would like to dive into why is it that the really advanced ne
 Subsequently, I will take a look at neural networks and explain the Universal Approximation Theorem. Since the Universal Approximation Theorem only holds for single layer neural networks, we will look if it possible to extend this unique property of single layer neural networks to deeper networks. Once we have these building blocks in place, we are going to combine them to see how they can be used to approximate the way giant neural networks can still learn.
 
 # Curse of Dimensionality
-As most data scientists are familiar with the main concepts of the curse of dimensionality, they will not be set out in this blogpost. In case you are not that familiar with it, the following video lecture covers it in the best 30 minute version that I have come across.
+As most data scientists are familiar with the main concepts of the curse of dimensionality, they will not be set out in this blogpost. In case you are not that familiar with it, the following video lecture covers it in the best 30 minute version that I have come across (From about 01:00 until 31:00).
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BbYV8UfMJSA?si=DxY1wVyrLNKXwg11&amp;start=66" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BbYV8UfMJSA?si=DxY1wVyrLNKXwg11&amp;start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
 
 <br>
@@ -59,7 +61,7 @@ $$
 \text{dist}(f,V_J) = \inf_{P\in V_J} ||f-P||. ~~~(1) 
 $$
 
-This definition is used to set up a metric by which we can measure how well a certain size of network is able to approximate a function. It is now provable that in the case it is desired that $\text{dist}(f,V_J) < \epsilon$ for any arbitrary $\epsilon$, the complexity of the network becomes in the order of $\mathcal{O}(\epsilon^{-\frac{1}{d}})$. Which means, if an accuracy is desired of within 10% of the original function, a network of size $10^d$ is needed to guarantee it [<a href='https://arxiv.org/abs/1611.00740'>2</a>], where $d$ was the dimensionality of the input. It should be noted that there are only $10^{86}$ atoms in the universe. It seems quite hard to find a feasible shallow network that can learn the 150.528 input to a single class output mapping of ImageNet.
+This definition is used to set up a metric by which we can measure how well a certain size of network is able to approximate a function. It is now provable that in the case it is desired that $\text{dist}(f,V_J) < \epsilon$ for any arbitrary $\epsilon$, the complexity of the network becomes in the order of $\mathcal{O}(\epsilon^{-\frac{1}{d}})$. Which means, if an accuracy is desired of within 10% of the original function, a network of size $10^d$ is needed to guarantee it [<a href='https://arxiv.org/abs/1611.00740'>2</a>], where $d$ was the dimensionality of the input. It should be noted that there are only $10^{86}$ atoms in the universe. Taking it back to the ImageNet case with 150.528 inputs, it does seem quite hard to find a feasible shallow network that can learn the 150.528 input to a single class output mapping of ImageNet. That's why we need more layers in the network.
 
 ## Extension to deep neural networks
 It is familiar to everyone that most networks do have more layers than one, and that they provide in general better approximations of the function to be learned. What is not trivial however, is that the Universal Approximation Theorem also holds for deeper networks. From [<a href='https://arxiv.org/abs/1611.00740'>2</a>] it is also shown that the Universal Approximation Theorem can be extended to deeper networks, under two conditions.
@@ -70,7 +72,7 @@ The first condition is that $f(x)$ should be of a compositional nature. This  me
 ### Condition 2. The activation function $\sigma$ is smooth
 The second condition is that the activation function $\sigma$ should be smooth (the derivative of a function should be continuous). The most used activation function nowadays is the ReLU function, whose derivative in $0$ is not well-defined. It would mean that this condition is not satisfied, but by invoking the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem">Weierstrass approximation theorem</a> on the ReLU function it can be uniformly approximated as closely as desired by a polynomial function (of high enough order). In figure 1, the ReLU activation function is approximated by a polynomial and the resulting network (trained on <a href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10</a>) empirically has approximately the same performance [<a href="https://arxiv.org/abs/1703.09833">6</a>]. Hereby it is possible to say that the second condition is satisfied as well.
 
-<center> <img src="/assets/images/2019-09-20-ignoring-cod/smoothedrelu.png"> <br> <i> figure 1. Approximating the ReLU activation function by a polynomial and the resulting performance of the network. [<a href="https://arxiv.org/abs/1703.09833">6</a>]</i></center> 
+<center> <img src="/assets/images/2024-02-12-ignoring-cod/smoothedrelu.png"> <br> <i> figure 1. Approximating the ReLU activation function by a polynomial and the resulting performance of the network. [<a href="https://arxiv.org/abs/1703.09833">6</a>]</i></center> 
 
 ### Consequence
 Now that we see that both conditions are met, it is possible to extend the Universal Approximation Theorem to deep networks as well. It also gives the possibility to compare the approximation power of shallow vs deep networks. When setting up a neural network, in general, we do not have the analytic form of function $f(x)$ we are trying to approximate, but just have the input and output data.
