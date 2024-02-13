@@ -29,8 +29,8 @@ I also currently have a gut feeling somewhere that there is a big opportunity fo
 The main books and sites I am currently very much engaged with. I am trying to keep the list as short as possible on any given topic, because be honest, who really has the time next to their day jobs to dive into 5 different university level textbooks for a single topic. Even in university you just had one main text book per topic/course...
 
 #### Bayesian
-- **[Richard McElreath - Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/)**
-I am crazy impressed with how he has reworked the course in 2023/2024 (vs. my last time watching some lectures in 2019) and how he has worked into it a massive focus on causality. Although my tip would be to get the book, because it does dive a bit more into the mathematics behind it, but still very much focussed on also getting the philisophical thoughts behind Bayesian modelling across.
+- **Richard McElreath - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/)**
+I am crazy impressed with how he has reworked the course in 2023/2024 (vs. my last time watching some lectures in 2019) and how he has worked into it a massive focus on causality. So going through the entire course again. My tip would be to get the book as well, because it does dive a bit more into the mathematics behind it, but still very much focussed on also getting the philisophical thoughts behind Bayesian modelling across.
 
 #### Causal Inference
 
